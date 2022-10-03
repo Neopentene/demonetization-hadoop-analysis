@@ -1,0 +1,11 @@
+Steps:
+- Command - hadoop fs -mkdir bda_project - To make a directory that will contain project files
+- Command - hadoop fs -mkdir bda_project/dictionary - To make a directory that will store the dictionary
+- Command - hadoop fs -mkdir bda_project/results - To make a directory that will store the result
+- Download Files - https://github.com/Neopentene/demonetization-hadoop-analysis/archive/refs/heads/main.zip
+- Extract Files - Destop
+- Command - hadoop fs -mkdir bda_project/dataset
+- Command - hadoop fs -copyFromLocal ~/Desktop/demonetization-hadoop-analysis-main/dataset/demonetization-tweets.csv bda_project/dataset
+- Command - hadoop fs -copyFromLocal ~/Desktop/demonetization-hadoop-analysis-main/dictionary/weights.csv bda_project/dictionary
+- Command - pig -x mapreduce ~/Desktop/demonetization-hadoop-analysis-main/demonotetization_analysis.pig
+- Command - hadoop fs -get bda_project/results/* ~/Desktop/demonetization-hadoop-analysis-main/results
